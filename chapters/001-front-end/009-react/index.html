@@ -1,0 +1,485 @@
+<section>
+  <div class="boxes">
+    <svg class="squiggle" viewbox="0,0 300,40" width="120%">
+      <path d="M8,10 C150,-20 50,60 292,10"></path>
+    </svg>
+    <div class="box">
+      UI Frameworks </div>
+    <div class="box highlight">
+      React
+    </div>
+    <div class="box">
+      Create React App
+    </div>
+  </div>
+  <aside class="notes"></aside>
+</section>
+<section>
+  <blockquote cite="https://reactjs.org">
+    &ldquo;A JavaScript library for building user interfaces&ldquo;
+  </blockquote>
+  <aside class="notes">
+    not framework but library to render views
+    <br />
+    Which does not do React justice but is technically correct.
+  </aside>
+</section>
+<section>
+  <div class="column-wrapper">
+    <div>
+      <strong>index.html</strong>
+      <pre class="highlight"><code class="language-html" data-noescape>&lt;body&gt;
+  <span class="fragment highlight-current-blue" data-fragment-index="6">&lt;div id="root"&gt;&lt;/div&gt;</span>
+&lt;/body&gt;</code></pre>
+    </div>
+    <div style="margin-left: 1rem;">
+      <strong>script.js</strong>
+      <pre
+        class="highlight"><code class="language-jsx" data-noescape><span class="fragment highlight-current-blue" data-fragment-index="1">import React from 'react';</span>
+<span class="fragment highlight-current-blue" data-fragment-index="2">import ReactDom from 'react-dom';</span>
+
+<span class="fragment highlight-current-blue" data-fragment-index="3">function App() {
+  return <span class="fragment highlight-current-blue" data-fragment-index="4">&lt;div&gt;Hello World&lt;/div&gt;;</span>
+}</span>
+
+<span class="fragment highlight-current-blue" data-fragment-index="5">ReactDom.render(&lt;App /&gt;, document.getElementById('<span class="fragment highlight-current-blue" data-fragment-index="6">root</span>'));</span></code></pre>
+    </div>
+  </div>
+  <aside class="notes"></aside>
+</section>
+<section>
+  <div style="position: relative;">
+    <div style="position: absolute; left:20%" class="fragment fade-out">
+      <pre class="highlight" data-line="4-6"><code data-noescape class="language-jsx">import React from 'react';
+import ReactDom from 'react-dom';
+
+function App() {
+  return &lt;div&gt;Hello World&lt;/div&gt;;
+}
+
+ReactDom.render(&lt;App /&gt;, document.getElementById('root'));</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="4-6,8-10"><code data-noescape class="language-jsx">import React from 'react';
+import ReactDom from 'react-dom';
+
+const Greeting = function() {
+  return &lt;div&gt;Hello World&lt;/div&gt;;
+};
+
+const App = function() {
+  return &lt;Greeting /&gt;;
+}
+
+ReactDom.render(&lt;App /&gt;, document.getElementById('root'));</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="4-6,8"><code data-noescape class="language-jsx" >import React from 'react';
+import ReactDom from 'react-dom';
+
+const Greeting = () => {
+  return &lt;div&gt;Hello World&lt;/div&gt;;
+};
+
+const App = () => &lt;Greeting /&gt;;
+
+ReactDom.render(&lt;App /&gt;, document.getElementById('root'));</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="5-6"><code data-noescape class="language-jsx" >import React from 'react';
+import ReactDom from 'react-dom';
+
+const Greeting = () => { // arrow function
+  const name = 'World';
+  return &lt;div&gt;Hello {name}&lt;/div&gt;;
+};
+
+const App = () => &lt;Greeting /&gt;; // implicit return
+
+ReactDom.render(&lt;App /&gt;, document.getElementById('root'));</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="4-6, 8"><code data-noescape class="language-jsx" >import React from 'react';
+import ReactDom from 'react-dom';
+
+const Greeting = (props) => {
+  return &lt;div&gt;Hello {props.name}&lt;/div&gt;;
+};
+
+const App = () => &lt;Greeting name="World"/&gt;;
+
+ReactDom.render(&lt;App /&gt;, document.getElementById('root'));</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="4-6"><code data-noescape class="language-jsx" >import React from 'react';
+import ReactDom from 'react-dom';
+
+const Greeting = ({ name }) => { // destructuring
+  return &lt;div&gt;Hello {name}&lt;/div&gt;;
+};
+
+const App = () => &lt;Greeting name="World"/&gt;;
+
+ReactDom.render(&lt;App /&gt;, document.getElementById('root'));</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="8-14"><code class="language-jsx" >import React from 'react';
+import ReactDom from 'react-dom';
+
+const Greeting = ({ name }) => {
+  return &lt;div&gt;Hello {name}&lt;/div&gt;;
+};
+
+const App = () => (
+  &lt;div&gt;
+    &lt;Greeting name="World" /&gt;
+    &lt;Greeting name="Foo" /&gt;
+    &lt;Greeting name="Bar" /&gt;
+  &lt;/div&gt;
+);
+
+ReactDom.render(&lt;App /&gt;, document.getElementById('root'));</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="8-14"><code class="language-jsx" >import React from 'react';
+import ReactDom from 'react-dom';
+
+const Greeting = ({ name }) => {
+  return &lt;div&gt;Hello {name}&lt;/div&gt;;
+};
+
+const App = () => (
+  &lt;div&gt;
+    { 
+      ['World', 'Foo', 'Bar'].map((name) => &lt;Greeting name={name}/&gt;) 
+    }
+  &lt;/div&gt;
+);
+
+ReactDom.render(&lt;App /&gt;, document.getElementById('root'));</code></pre>
+    </div>
+    <div style="position: absolute; left:15%" class="fragment fade-in-then-out">
+      <pre class="" data-line="8-14"><code class="language-jsx" >import React from 'react';
+import ReactDom from 'react-dom';
+
+const Greeting = ({ name }) => {
+  return &lt;div&gt;Hello {name}&lt;/div&gt;;
+};
+
+const App = () => (
+  &lt;div&gt;
+    { 
+      ['World', 'Foo', 'Bar'].map((name) => &lt;Greeting name={name} key={name} /&gt;) 
+    }
+  &lt;/div&gt;
+);
+
+ReactDom.render(&lt;App /&gt;, document.getElementById('root'));</code></pre>
+    </div>
+  </div>
+</section>
+<section>
+  <div style="position: relative;">
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="3"><code class="language-jsx" >import React from 'react';
+
+// export for better re-usability
+export const Counter = () => {
+  return &lt;div&gt;1, 2, 3, 4&lt;/div&gt;;
+};</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="3,6"><code class="language-jsx" >import React from 'react';
+import ReactDom from 'react-dom';
+import Components from './Counter';
+
+function App () {
+  return &lt;Components.Counter /&gt;;
+};
+
+ReactDom.render(&lt;App /&gt;, document.getElementById('root'));</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="3,6"><code class="language-jsx" >import React from 'react';
+import ReactDom from 'react-dom';
+import { Counter } from './Counter'; // destructuring
+
+function App () {
+  return &lt;Counter /&gt;;
+};
+
+ReactDom.render(&lt;App /&gt;, document.getElementById('root'));</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class=""><code class="language-jsx" >import React from 'react';
+
+export const Counter = () => {
+  return &lt;div&gt;1, 2, 3, 4&lt;/div&gt;;
+};</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class=""><code class="language-jsx" >import React from 'react';
+
+export const Counter = () => {
+  const count = 0;
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() => { count = count - 1; }}&gt;-&lt;/button&gt;
+      {count}
+      &lt;button onClick={() => { count = count + 1; }}&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="4,7,9"><code class="language-jsx" >import React from 'react';
+
+export const Counter = () => {
+  <u>const</u> count = 0;
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() => { <u>count = count - 1;</u> }}&gt;-&lt;/button&gt;
+      {count}
+      &lt;button onClick={() => { <u>count = count + 1;</u> }}&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="4"><code class="language-jsx" >import React from 'react';
+
+export const Counter = () => {
+  let count = 0;
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() => { count = count - 1; }}&gt;-&lt;/button&gt;
+      {count}
+      &lt;button onClick={() => { count = count + 1; }}&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="4-6,10,12"><code class="language-jsx" >import React from 'react';
+
+export const Counter = () => {
+  const countState = React.useState(0);
+  const count = countState[0];
+  const setCount = countState[1];
+
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() => { setCount(count - 1) }}&gt;-&lt;/button&gt;
+      {count}
+      &lt;button onClick={() => { setCount(count + 1) }}&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="4"><code class="language-jsx" >import React from 'react';
+
+export const Counter = () => {
+  const [count, setCount] = React.useState(0); // destructuring
+
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() => { setCount(count - 1) }}&gt;-&lt;/button&gt;
+      {count}
+      &lt;button onClick={() => { setCount(count + 1) }}&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="1,4"><code class="language-jsx" >import React, { useState } from 'react';
+
+export const Counter = () => {
+  const [count, setCount] = useState(0);
+
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() => { setCount(count - 1) }}&gt;-&lt;/button&gt;
+      {count}
+      &lt;button onClick={() => { setCount(count + 1) }}&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+    </div>
+  </div>
+</section>
+<section>
+  <div style="position: relative;">
+    <div style="position: absolute; left:20%" class="">
+      <pre class=""><code class="language-jsx" >import React, { useState } from 'react';
+
+// custom hook
+export function useCounter (initialCount) {
+  const [count, setCount] = useState(initialCount);
+  return {
+    count, // same as count: count,
+    decrement: (decrementBy = 1) => { // default parameter
+      setCount(count - decrementBy);
+    },
+    increment: (incrementBy = 1) => { // default parameter
+      setCount(count + incrementBy);
+    }
+  }
+} 
+
+export const Counter = () => {
+  const { count, decrement, increment } = useCounter(0);
+
+  return (
+    &lt;div&gt;
+      {/* decrement will default to 1 */}                                   
+      &lt;button onClick={() => { decrement() }}&gt;-&lt;/button&gt;
+      {count}
+      &lt;button onClick={() => { increment(2) }}&gt;+&lt;/button&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+    </div>
+  </div>
+</section>
+
+
+<section>
+  <div style="position: relative;">
+    <div style="position: absolute; left:20%" class="">
+      <pre class="" data-line="1,9,16"><code class="language-jsx" >const Toggle = ({ content }) => {
+  const [isVisible, setIsVisible] = useState(false);
+
+  return (
+    &lt;div&gt;
+      &lt;button onClick={() =&gt; { setIsVisible(!isVisible); }}&gt;
+        Toggle!
+      &lt;/button&gt;
+      {/* conditional rendering */}
+      {isVisible ? &lt;div&gt;{content}&lt;/div&gt; : null}
+    &lt;/div&gt;
+  );
+};
+
+const App = () => {
+  return &lt;Toggle content="Hello World" /&gt;;
+};</code></pre>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div style="position: relative;">
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class=""><code class="language-jsx" >const InputExample = () => {
+  const [text, setText] = useState('');
+
+  return (
+    &lt;div&gt;
+      &lt;label htmlFor="pageTitle"&gt;Enter Page Title:&lt;/label&gt;
+      &lt;input
+        className="form-control"
+        value={text}
+        id="pageTitle"
+        onChange={event =&gt; setText(event.target.value)}
+      /&gt;
+      &lt;p&gt;Entered page title: {text}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="6,8,11"><code class="language-jsx" >const InputExample = () => {
+  const [text, setText] = useState('');
+
+  return (
+    &lt;div&gt;
+      &lt;label htmlFor="pageTitle"&gt;Enter Page Title:&lt;/label&gt;
+      &lt;input
+        className="form-control"
+        value={text}
+        id="pageTitle"
+        onChange={event =&gt; setText(event.target.value)}
+      /&gt;
+      &lt;p&gt;Entered page title: {text}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+    </div>
+    <div style="position: absolute; left:20%" class="fragment fade-in-then-out">
+      <pre class="" data-line="3-5"><code class="language-jsx" >const InputExample = () => {
+  const [text, setText] = useState('');
+  useEffect(() => {
+   document.title = text.length === 0 ? 'Title' : text;
+  }, [text]);
+
+  return (
+    &lt;div&gt;
+      &lt;label htmlFor="pageTitle"&gt;Enter Page Title:&lt;/label&gt;
+      &lt;input
+        className="form-control"
+        value={text}
+        id="pageTitle"
+        onChange={event =&gt; setText(event.target.value)}
+      /&gt;
+      &lt;p&gt;Entered page title: {text}&lt;/p&gt;
+    &lt;/div&gt;
+  );
+};</code></pre>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Links</h3>
+  <ul class="unstyled" style="font-size: 1.5rem;">
+    <li>
+      <a href="https://reactjs.org" target="blank">reactjs.org</a><br /><small>Official documentation</small>
+    </li>
+    <li>
+      <a href="https://overreacted.io" target="blank">overreacted.io</a><br /><small>Personal blog of Dan Abramov (React
+        Core Team) with deep dives and
+        insights about React</small>
+    </li>
+    <li>
+      <a href="https://kentcdodds.com/blog" target="blank">kentcdodds.com/blog</a><br /><small>Blog of Kent C. Dodds
+        (React teacher) with great tutorials and
+        articles</small>
+    </li>
+    <li>
+      <a href="https://egghead.io" target="blank">egghead.io</a><br /><small>Several videos (only some are free) about
+        JavScript, React and other
+        Frontend development topics</small>
+    </li>
+  </ul>
+</section>
+<section>
+  <h3>Links</h3>
+  <ul class="unstyled" style="font-size: 1.5rem;">
+    <li>
+      <a href="https://codesandbox.io/s/slides-example-1-ykk71" target="blank">Codesandbox Example
+        1</a><br /><small>First Example: Render "Hello World"</small>
+    </li>
+    <li>
+      <a href="https://codesandbox.io/s/slides-example-2-fjz6z" target="blank">Codesandbox Example
+        2</a><br /><small>Second Example: Render several custom
+        <code>&lt;Greeting /&gt;</code> components</small>
+    </li>
+    <li>
+      <a href="https://codesandbox.io/s/slides-example-3-b2iwx" target="blank">Codesandbox Example
+        3</a><br /><small>Third Example: A Counter</small>
+    </li>
+    <li>
+      <a href="https://codesandbox.io/s/slides-example-4-yru4g" target="blank">Codesandbox Example
+        4</a><br /><small>Fourth Example: A Counter using <code>useReducer</code></small>
+    </li>
+    <li>
+      <a href="https://codesandbox.io/s/slides-example-5-d98iu" target="blank">Codesandbox Example
+        5</a><br /><small>Fifth Example: A Toggle</small>
+    </li>
+    <li>
+      <a href="https://codesandbox.io/s/slides-example-6-0xv05" target="blank">Codesandbox Example
+        6</a><br /><small>Sixth Example: <code>useEffect</code></small>
+    </li>
+  </ul>
+</section>

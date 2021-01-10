@@ -1,0 +1,158 @@
+<section>
+  <div class="boxes">
+    <svg class="squiggle" viewbox="0,0 300,40" width="120%">
+      <path d="M8,10 C150,-20 50,60 292,10"></path>
+    </svg>
+    <div class="box">
+      CSS in JS
+    </div>
+    <div class="box highlight">
+      Data: REST & GraphQL
+    </div>
+    <div class="box">
+      Debugging
+    </div>
+  </div>
+  <aside class="notes"></aside>
+</section>
+<section>
+  REST: fetch or axios
+  <pre><code class="language-js">// do not use like this in production! Error handling was omitted for brevity!
+async function loadData() {
+  // using fetch - native (needs polyfill for older browsers)
+  const apiResult = await fetch('https://swapi.co/api/people/1/');
+  const lukeSkywalker = await apiResult.json();
+
+  // using axios - has to be installed: npm install axios
+  const c3po = await axios.get('https://swapi.co/api/people/1/');
+}</code></pre>
+  <div class="fragment" style="font-size: 80%;">
+    <code>async/await</code> = syntactic sugar over the <code>Promise</code> API
+  </div>
+  <aside class="notes">
+    <p>
+      All web applications have to load their data from some APIs. The
+      traditional way is using REST APIs.
+    </p>
+  </aside>
+</section>
+<section>
+  <img src="img/graphql-logo.png" />
+  <aside class="notes">
+    <p>The 2019 way is using GraphQL</p>
+    <p>
+      GraphQL is a whole topic and presentation in itself but here are the gists
+      of it:
+    </p>
+  </aside>
+</section>
+<section>
+  <div class="column-wrapper">
+    <div>
+      Schema
+      <pre><code class="language-graphql">type Project {
+  name: String
+  tagline: String
+  contributors: [User]
+}</code></pre>
+    </div>
+    <div>
+      Query
+      <pre><code class="language-graphql">{
+  project(name: "GraphQL") {
+    tagline
+  }
+}</code></pre>
+    </div>
+    <div>
+      Result
+      <pre><code class="language-json">{
+  "project": {
+    "tagline": "A query language for APIs"
+  }
+}</code></pre>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>
+      The server provides a Schema. The schema is typed. The client can query
+      data from the schema and other than with REST only loads the data it wants
+      to use.
+    </p>
+    <p>
+      In a traditional app you maybe have 3 REST API calls for a specific route.
+      In the GraphQL server and scheam you can bundle these requests into one.
+      While doing that GraphQL provides you ways to cache the data.
+    </p>
+  </aside>
+</section>
+<section>
+  <div class="logos">
+    <div class="logo">
+      <img
+        src="img/apollo-logo.png"
+        class="fragment grow"
+        data-fragment-index="1"
+      /><br />
+      <small>Apollo</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/relay-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      /><br />
+      <small>Relay</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/urql-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      /><br />
+      <small>URQL</small>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>
+      Relay is the Infrastructure developed by Facebook. The docs aren't that
+      great.
+    </p>
+    <p>
+      Apollo is the most popular solution with a good Server and Client
+      architecture. The docs are great.
+    </p>
+    <p>URLQ is Client and the newest addition and has the smallest API</p>
+  </aside>
+</section>
+<section>
+  GraphiQL
+  <img
+    src="img/graphiql-screenshot.png"
+    style="max-height: 100%; max-width: 100%"
+  />
+</section>
+<section>
+  <h3>Links</h3>
+  <ul class="unstyled">
+    <li>
+      <a href="https://www.npmjs.com/package/whatwg-fetch" target="blank"
+        >whatwg-fetch</a
+      ><br /><small>Polyfill for fetch</small>
+    </li>
+    <li>
+      <a href="https://github.com/axios/axios" target="blank">Axios</a
+      ><br /><small>Axios documentation</small>
+    </li>
+    <li>
+      <a href="https://graphql.org/" target="blank">GraphQL</a><br /><small
+        >GraphQL Documentation</small
+      >
+    </li>
+    <li><a href="https://www.apollographql.com/" target="blank">Apollo</a></li>
+    <li><a href="https://relay.dev/" target="blank">Relay</a></li>
+    <li>
+      <a href="https://github.com/FormidableLabs/urql" target="blank">URQL</a>
+    </li>
+  </ul>
+</section>

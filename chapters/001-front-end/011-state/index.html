@@ -1,0 +1,137 @@
+<section>
+  <div class="boxes">
+    <svg class="squiggle" viewbox="0,0 300,40" width="120%">
+      <path d="M8,10 C150,-20 50,60 292,10"></path>
+    </svg>
+    <div class="box">
+      Create React App
+    </div>
+    <div class="box highlight">
+      State Management
+    </div>
+    <div class="box">
+      Recommended libraries
+    </div>
+  </div>
+  <aside class="notes">
+    There are so many ways to handle state in React apps
+  </aside>
+</section>
+<section>
+  <h3>Hooks</h3>
+  <code>useState</code><br />
+  <code>useReducer</code>
+  <aside class="notes">
+    They will get you far. They will get you very far. But I think halfway
+    through development you will hit a wtf moment.
+  </aside>
+</section>
+<section data-transition="slide-in">
+  <img src="diagrams/context-001.png" />
+  <aside class="notes">
+    Let's say you have a component ChatWindow and a component SingleMessage and
+    they should share a state.
+  </aside>
+</section>
+<section data-transition="none">
+  <img src="diagrams/context-002.png" />
+  <aside class="notes"></aside>
+</section>
+<section data-transition="slide-out">
+  <img src="diagrams/context-003.png" />
+  <aside class="notes">
+    That can get ridicously complex at one point, prop-drilling
+  </aside>
+</section>
+<section>
+  <h3>Context</h3>
+  <aside class="notes"></aside>
+</section>
+<section data-transition="slide-in">
+  <img src="diagrams/context-004.png" />
+  <aside class="notes">
+    The built-in solution is using context. There even is a hook for it.
+  </aside>
+</section>
+<section data-transition="slide-out">
+  <img src="diagrams/context-005.png" />
+  <aside class="notes">
+    Context are like a scope. We provide values via a Provider and the whole
+    subtree of components can have access to the values in that scope.
+  </aside>
+</section>
+<section>
+  3rd Party state management libraries
+  <div class="logos" style="margin-top: 1.5rem;">
+    <div class="logo">
+      <img
+        src="img/redux-logo.png"
+        class="fragment grow"
+        data-fragment-index="1"
+      /><br />
+      <small>Redux</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/mobx-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      /><br />
+      <small>MobX</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/xstate-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      /><br />
+      <small>XState</small>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>
+      Redux is like Context paired with useReducer on steroids, it's the most
+      popular 3rd party state manager
+    </p>
+    <p>
+      It has a great range of available middlewares that maybe help by
+      automatically syncing your state into local storage, or help you with
+      async calls
+    </p>
+    <p>
+      MobX is the second most popular library. It uses JavaScript decorators and
+      Observables.
+    </p>
+    <p>
+      XState handles the state inside a state machine.
+    </p>
+  </aside>
+</section>
+<section>
+  <h3>Links</h3>
+  <ul class="unstyled">
+    <li>
+      <a href="https://redux.js.org/" target="blank">Redux</a><br /><small
+        >Official documentation for Redux</small
+      >
+    </li>
+    <li>
+      <a
+        href="https://redux-starter-kit.js.org/introduction/quick-start"
+        target="blank"
+        >Redux Starter Kit</a
+      ><br /><small
+        >A Starter Kit for Redux. <strong>Highly recommended</strong> when using
+        Redux</small
+      >
+    </li>
+    <li>
+      <a href="https://github.com/mobxjs/mobx" target="blank">MobX</a
+      ><br /><small>Official documentation for MobX</small>
+    </li>
+    <li>
+      <a href="https://github.com/davidkpiano/xstate" target="blank">XState</a
+      ><br /><small>Official documentation for XState</small>
+    </li>
+  </ul>
+</section>

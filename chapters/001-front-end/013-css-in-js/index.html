@@ -1,0 +1,208 @@
+<section>
+  <div class="boxes">
+    <svg class="squiggle" viewbox="0,0 300,40" width="120%">
+      <path d="M8,10 C150,-20 50,60 292,10"></path>
+    </svg>
+    <div class="box">
+      Recommended libraries
+    </div>
+    <div class="box highlight">
+      CSS in JS
+    </div>
+    <div class="box">
+      Data: REST & GraphQL
+    </div>
+  </div>
+  <aside class="notes"></aside>
+</section>
+
+<section>
+  <pre><code class="language-css" style="font-size: 80%">.btn {
+  background: transparent;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  margin: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
+}
+
+.btn.btn-primary {
+  background: palevioletred;
+  color: white;
+}
+</code></pre>
+  <pre><code class="language-jsx">render(
+  &lt;div&gt;
+    &lt;button className="btn"&gt;Normal Button&lt;/button&gt;
+    &lt;button className="btn btn-primary"&gt;Primary Button&lt;/button&gt;
+  &lt;/div&gt;
+);</code></pre>
+  <img src="img/styled-screenshot.png" />
+  <aside class="notes"></aside>
+</section>
+
+<section>
+  <pre><code class="language-jsx" style="font-size: 70%">render(
+  &lt;div&gt;
+    &lt;button style={{
+        background: 'transparent',
+        borderRadius: 3,
+        border: '2px solid palevioletred',
+        color: 'palevioletred',
+        margin: '0.5rem 1rem',
+        padding: '0.25rem 1rem'
+      }}
+    &gt;Normal Button&lt;/button&gt;
+    &lt;button style={{
+        background: 'palevioletred',
+        borderRadius: 3,
+        border: '2px solid palevioletred',
+        color: 'white',
+        margin: '0.5rem 1rem',
+        padding: '0.25rem 1rem'
+      }}
+    &gt;Primary Button&lt;/button&gt;
+  &lt;/div&gt;
+);</code></pre>
+  <img src="img/styled-screenshot.png" />
+  <aside class="notes"></aside>
+</section>
+
+<section>
+  <pre><code class="language-jsx" style="font-size: 70%">const buttonStyles = {
+  background: 'transparent',
+  borderRadius: 3,
+  border: '2px solid palevioletred',
+  color: 'palevioletred',
+  margin: '0.5rem 1rem',
+  padding: '0.25rem 1rem'
+};
+
+render(
+  &lt;div&gt;
+    &lt;button style={buttonStyles}&gt;Normal Button&lt;/button&gt;
+    &lt;button style={{
+      ...buttonStyles,
+      background: 'palevioletred',
+      color: 'white',
+    }}&gt;Primary Button&lt;/button&gt;
+  &lt;/div&gt;
+);</code></pre>
+  <img src="img/styled-screenshot.png" />
+  <aside class="notes"></aside>
+</section>
+
+<section>
+  <pre><code class="language-jsx" style="font-size: 80%">import styled from 'styled-components';
+    
+const Button = styled.button`
+  background: white;
+  border-radius: 3px;
+  border: 2px solid palevioletred;
+  color: palevioletred;
+  margin: 0.5rem 1rem;
+  padding: 0.25rem 1rem;
+
+  ${props => props.primary ? css`
+    background: palevioletred;
+    color: white;
+  ` : ``}
+`; 
+
+render(
+  &lt;div&gt;
+    &lt;Button&gt;Normal Button&lt;/Button&gt;
+    &lt;Button primary&gt;Primary Button&lt;/Button&gt;
+  &lt;/div&gt;
+);
+</code></pre>
+  <img src="img/styled-screenshot.png" />
+  <aside class="notes">
+    <p>
+      CSS in JS is one of the new next best things. Instead of writing your CSS
+      in CSS, or SASS files you write it directly inside your JavaScript files
+      inside your components.
+    </p>
+    <p>
+      I think it's nice to have the CSS directly visible in your Components. But
+      where they shine is that it is way easier to react to the current props of
+      the component than with classNames.
+    </p>
+    <p>
+      Since it's JavaScript you can also use variables and generate stuff like
+      you can with a CSS pre-processor like SASS
+    </p>
+  </aside>
+</section>
+<section>
+  <div class="logos" style="margin-top: 1.5rem;">
+    <div class="logo">
+      <img
+        src="img/styled-components-logo.png"
+        class="fragment grow"
+        data-fragment-index="1"
+      /><br />
+      <small>styled components</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/emotion-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      /><br />
+      <small>emotion</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/linaria-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      /><br />
+      <small>linaria</small>
+    </div>
+  </div>
+  <div class="fragment" data-fragment-index="2">
+    <code>styled-system</code>
+  </div>
+  <aside class="notes">
+    <p>
+      But we chose not to use CSS in JS. I really wanted to and am still a fan
+      of this approach but it does not make sense for us. We are heavily
+      invested in Bootstrap and SASS. It would not be feasible for us to port
+      everything to JavaScript.
+    </p>
+    <p>
+      If you start on a blank canvas and if you write your own CSS and do not
+      depend on a UI library I recommend going with a CSS in JS library
+    </p>
+    <p>
+      styled-components and emotion are evaluated at runtime and linaria is
+      pre-compiled. Out of all styled-components is the most popular
+    </p>
+    <p>
+      styled-system is a CSS in JS utility library compatible with all 3
+      libraries
+    </p>
+  </aside>
+</section>
+<section>
+  <h3>Links</h3>
+  <ul class="unstyled">
+    <li>
+      <a href="https://www.styled-components.com/" target="blank"
+        >Styled Components</a
+      >
+    </li>
+    <li>
+      <a href="https://emotion.sh/docs/introduction" target="blank">Emotion</a>
+    </li>
+    <li>
+      <a href="https://github.com/callstack/linaria" target="blank">Linaria</a>
+    </li>
+    <li>
+      <a href="https://github.com/styled-system/styled-system" target="blank"
+        >Styled System</a
+      >
+    </li>
+  </ul>
+</section>

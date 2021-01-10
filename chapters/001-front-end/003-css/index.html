@@ -1,0 +1,150 @@
+<section>
+  <div class="boxes">
+    <svg class="squiggle" viewbox="0,0 300,40" width="120%">
+      <path d="M8,10 C150,-20 50,60 292,10"></path>
+    </svg>
+    <div class="box">
+      HTML
+    </div>
+    <div class="box highlight">
+      CSS
+    </div>
+    <div class="box">
+      CSS pre-processors
+    </div>
+  </div>
+  <aside class="notes">
+    CSS is easy to learn but difficultish to master.<br />
+    many keywords <br />
+    different browsers rendering differently
+  </aside>
+</section>
+<section>
+  <h3>Learning CSS</h3>
+  <div class="column-wrapper">
+    <ol>
+      <li class="fragment highlight-current-blue" data-fragment-index="1">
+        Selectors & Specificity
+      </li>
+      <li class="fragment highlight-current-blue" data-fragment-index="2">
+        Box Model
+      </li>
+      <li class="fragment highlight-current-blue" data-fragment-index="3">
+        Flexbox
+      </li>
+      <li class="fragment highlight-current-blue" data-fragment-index="4">
+        CSS grid
+      </li>
+      <li class="fragment highlight-current-blue" data-fragment-index="5">
+        CSS reset
+      </li>
+    </ol>
+    <div style="position: relative">
+      <div
+        class="fragment fade-in-then-out"
+        style="position: absolute"
+        data-fragment-index="1"
+      >
+        <pre><code class="language-css">.class
+#id
+:modifier
+[attribute="value"]
+parent children
+parent > direct-child
+sibling + direct sibling
+sibling ~ all siblings
+</code></pre>
+      </div>
+      <div
+        class="fragment fade-in-then-out"
+        style="position: absolute"
+        data-fragment-index="2"
+      >
+        <img
+          src="img/css_box_model_chrome.png"
+          style="box-shadow: none; border: none;"
+        />
+        <a
+          href="http://vikingcodeschool.com/html5-and-css3/the-css-box-model"
+          target="blank"
+          style="font-size: 25%"
+          >Source</a
+        >
+      </div>
+      <div
+        class="fragment fade-in-then-out"
+        style="position: absolute"
+        data-fragment-index="3"
+      >
+        <pre><code class="language-css">.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+</code></pre>
+        <pre><code class="language-html">&lt;div class="center" style="height: 500px;"&gt;
+  &lt;div&gt;Look ma', I'm centered&lt;/div&gt;
+&lt;/div&gt;
+</code></pre>
+      </div>
+      <div
+        class="fragment fade-in-then-out"
+        style="position: absolute"
+        data-fragment-index="4"
+      >
+        <img src="img/css-grid.png" style="border: none; box-shadow: none;" />
+        <a
+          href="https://blog.kulturbanause.de/2013/12/css-grid-layout-module/"
+          target="blank"
+          style="font-size: 20%;"
+          >Source</a
+        >
+      </div>
+    </div>
+  </div>
+
+  <aside class="notes">
+    specificity.<br />
+    box model <br />
+    all jokes about vertically centering stuff in CSS are true. It's basically
+    witchcraft.<br />
+    flexbox <br />
+    heard about css grid. Layouting stuff is so much easier now
+  </aside>
+</section>
+<section>
+  <h3>Links</h3>
+
+  <ul class="unstyled">
+    <li>
+      <a
+        href="https://developer.mozilla.org/en-US/docs/Web/CSS/Reference"
+        target="blank"
+        >MDN CSS Reference</a
+      ><br />
+      <small>A list of every CSS attribute</small>
+    </li>
+    <li>
+      <a href="https://caniuse.com" target="blank">Can I Use</a><br /><small
+        >Check the browser support for HTML, CSS and JavaScript</small
+      >
+    </li>
+    <li>
+      <a href="https://cssreference.io/" target="blank">CSSReference.io</a
+      ><br />
+      <small>A visual guide to CSS</small>
+    </li>
+    <li>
+      <a
+        href="https://maintainablecss.com/chapters/introduction/"
+        target="blank"
+        >maintainable CSS</a
+      ><br />
+      <small>Tips on how to write maintainable CSS</small>
+    </li>
+    <li>
+      <a href="https://grid.layoutit.com/" target="blank">LayoutIt</a><br />
+      <small>CSS grid generator</small>
+    </li>
+  </ul>
+</section>

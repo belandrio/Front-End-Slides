@@ -1,0 +1,346 @@
+<section>
+  <div class="boxes">
+    <svg class="squiggle" viewbox="0,0 300,40" width="120%">
+      <path d="M8,10 C150,-20 50,60 292,10"></path>
+    </svg>
+    <div class="box">
+      State Management
+    </div>
+    <div class="box highlight">
+      Recommended libraries
+    </div>
+    <div class="box">
+      CSS in JS
+    </div>
+  </div>
+  <aside class="notes"></aside>
+</section>
+<section>
+  <img src="img/swyx-tweet.png" />
+  <aside class="notes"></aside>
+</section>
+<section>
+  Routing
+  <div class="logos" style="margin-top: 1.5rem;">
+    <div class="logo">
+      <img
+        src="img/react-router-logo.png"
+        class="fragment grow"
+        data-fragment-index="1"
+      /><br />
+      <small>React Router</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/reach-router-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      /><br />
+      <small>Reach Router</small>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>
+      Since reach-router will be merged into react-router in the near future,
+      just go with react-router.
+    </p>
+  </aside>
+</section>
+<section data-transition="slide-in">
+  <code>
+    std::cout
+  </code>
+</section>
+<section data-transition="slide-out">
+  <code style="text-decoration: line-through;">
+    std::cout
+  </code>
+  <aside class="notes">
+    JavaScript does not have any STDs and the the official EcmaScript API is
+    lacking.
+  </aside>
+</section>
+<section>
+  Utilities
+  <div class="logos" style="margin-top: 1.5rem;">
+    <div class="logo">
+      <img
+        src="img/lodash-logo.png"
+        class="fragment grow"
+        data-fragment-index="1"
+      /><br />
+      <small>lodash</small>
+    </div>
+    <div class="logo">
+      <img
+        style="max-height: 100px;"
+        src="img/underscore-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      /><br />
+      <small>underscore.js</small>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>
+      The most popular and feature-rich and is lodash. Both can be used without
+      react
+    </p>
+  </aside>
+</section>
+<section>
+  Date/Time
+  <div class="logos" style="margin-top: 1.5rem;">
+    <div class="logo">
+      <img
+        src="img/moment-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      /><br />
+      <small>moment</small>
+    </div>
+    <div class="logo" style="margin-top: 1.6rem;">
+      <h2 class="fragment grow" data-fragment-index="1">Luxon</h2>
+      <br />
+      <small>Luxon</small>
+    </div>
+    <div class="logo" style="margin-top: 3rem;">
+      <img
+        style="max-height: 100px;"
+        src="img/date-fns-logo.png"
+        class="fragment grow"
+        data-fragment-index="1"
+      /><br />
+      <small style="margin-top: 2rem;">date-fns</small>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>
+      moment is the heaviest one, date-fns is the smallest one
+    </p>
+    <p>
+      luxon is from the authors of moment but in luxon all dates are immutable
+    </p>
+    <p>
+      go with the one you like the API the most, we chose luxon
+    </p>
+  </aside>
+</section>
+<section>
+  <h3>PropTypes</h3>
+  <pre><code class="language-jsx">import React from 'react';
+import PropTypes from 'prop-types';
+
+function Button ({ onClick, icon, variant = 'primary', children, disabled = false }) {
+  // ...
+}
+
+Button.propTypes = {
+  onClick: PropTypes.func.isRequired,
+  icon: PropTypes.node.isRequired,
+  variant: PropTypes.oneOf(['primary', 'warning', 'success']),
+  children: PropTypes.string.isRequired,
+  disabled: PropTypes.bool
+}</code></pre>
+  <aside class="notes">
+    <p>A declaritive way to describe the type of your props.</p>
+    <p>
+      editor support
+    </p>
+    <p>
+      check runtime
+    </p>
+    <p>
+      If you do not use a typed language, which we will cover later, always use
+      PropTypes
+    </p>
+  </aside>
+</section>
+<section>
+  Applying classNames
+  <pre><code class="language-jsx">import React from 'react';
+
+function Button ({ size = 'large', variant = 'primary', children, disabled = false }) {
+  let buttonClassName = `btn btn-${variant}`; // btn btn-primary
+  if(disabled) {
+    buttonClassName += ' btn-disabled';
+  }
+
+  switch(size) {
+    case 'small':
+      buttonClassName += ' btn-xs';
+      break;
+    case 'large':
+      buttonClassName += ' btn-2x';
+      break;
+    case 'x-large':
+      buttonClassName += ' btn-3x';
+      break;
+    default:
+  }
+
+  return &lt;button className={buttonClassName}&gt;{children}&lt;/button&gt;
+}</code></pre>
+</section>
+<section>
+  <h3>ClassNames</h3>
+  <pre><code class="language-jsx">import React from 'react';
+import classNames from 'classnames';
+
+function Button ({ size = 'large', variant = 'primary', children, disabled = false }) {
+  const buttonClassName = classNames(`btn btn-${variant}`, {
+    'btn-disabled': disabled,
+    'btn-xs': size === 'small',
+    'btn-2x': size === 'large',
+    'btn-3x': size === 'x-large'
+  })
+  
+  return &lt;button className={buttonClassName}&gt;{children}&lt;/button&gt;
+}</code></pre>
+  <aside class="notes"></aside>
+</section>
+<section>
+  Forms in React =
+  <br />
+  <img src="img/pita.jpg" style="max-height: 200px;" />
+  <p class="fragment">PITA</p>
+  <aside class="notes"></aside>
+</section>
+<section>
+  Form libraries
+  <div class="logos" style="margin-top: 1.5rem;">
+    <div class="logo">
+      <img
+        src="img/formik-logo.png"
+        class="fragment grow"
+        data-fragment-index="1"
+      /><br />
+      <small>Formik</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/redux-form-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      /><br />
+      <small>redux-form</small>
+    </div>
+  </div>
+  <aside class="notes">
+    Formik. Just use Formik. Even when using redux.
+  </aside>
+</section>
+<section data-transition="slide-in">
+  internationalization<br />
+  localization
+  <aside class="notes">
+    If you have to support multiple languages or plan to do so in the future,
+    it's best to start yesterday.
+  </aside>
+</section>
+<section data-transition="slide-out">
+  i18n<br />
+  l10n
+</section>
+<section>
+  i18n &amp; l10n
+
+  <div class="logos" style="margin-top: 1.5rem;">
+    <div class="logo">
+      <h2 class="fragment shrink" data-fragment-index="1">react-intl</h2>
+      <br />
+      <small>react-intl</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/react-i18next-logo.png"
+        class="fragment grow"
+        data-fragment-index="1"
+      /><br />
+      <small>react-i18next</small>
+    </div>
+  </div>
+  <div class="fragment" data-fragment-index="2">
+    <code>Intl.NumberFormat</code> &amp; <code>Intl.DateFormat</code>
+  </div>
+  <aside class="notes">
+    <p>
+      We went with react-i18next because I think it has the nicer API and it has
+      hook support.
+    </p>
+    <p>
+      react-intl on the other hand does also do localization like formatting
+      numbers and dates
+    </p>
+    <p>
+      We use Intl.NumberFormat and Intl.DateFormat for those which for once have
+      great browser support
+    </p>
+  </aside>
+</section>
+
+<section>
+  complex graphs / network visualizations
+
+  <div class="logos" style="margin-top: 1.5rem;">
+    <div class="logo">
+      <h2 class="fragment shrink" data-fragment-index="1">GGEditor</h2>
+      <br />
+      <small>GGEditor</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/gojs-logo.png"
+        class="fragment grow"
+        data-fragment-index="1"
+      /><br />
+      <small>GoJS</small>
+    </div>
+  </div>
+</section>
+
+<section>
+  <h3>Links</h3>
+  <ul class="unstyled">
+    <li>
+      <a
+        href="https://reacttraining.com/react-router/web/guides/quick-start"
+        target="blank"
+        >React Router</a
+      ><br />
+    </li>
+    <li>
+      <a href="https://reach.tech/router" target="blank">Reach Router</a>
+    </li>
+    <li>
+      <a href="https://www.npmjs.com/package/prop-types" target="blank"
+        >PropTypes</a
+      >
+    </li>
+    <li>
+      <a href="https://github.com/JedWatson/classnames" target="blank"
+        >ClassNames</a
+      >
+    </li>
+    <li>
+      <a href="https://github.com/jaredpalmer/formik" target="blank">Formik</a>
+    </li>
+    <li>
+      <a href="https://redux-form.com/8.2.2/" target="blank">Redux Form</a>
+    </li>
+    <li>
+      <a href="https://github.com/formatjs/react-intl" target="blank"
+        >react-intl</a
+      >
+    </li>
+    <li>
+      <a href="https://react.i18next.com/" target="blank">react-i18next</a>
+    </li>
+    <li>
+      <a href="http://ggeditor.com/" target="blank">GGEditor</a>
+    </li>
+    <li>
+      <a href="https://gojs.net/latest/index.html" target="blank">GoJS</a>
+    </li>
+  </ul>
+</section>

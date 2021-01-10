@@ -1,0 +1,96 @@
+<section>
+  <div class="boxes">
+    <svg class="squiggle" viewbox="0,0 300,40" width="120%">
+      <path d="M8,10 C150,-20 50,60 292,10"></path>
+    </svg>
+    <div class="box">
+      CSS
+    </div>
+    <div class="box highlight">
+      CSS pre-processors
+    </div>
+    <div class="box">
+      JavaScript
+    </div>
+  </div>
+  <aside class="notes"></aside>
+</section>
+<section>
+  <p>... always use a CSS pre-processor</p>
+  <aside class="notes">
+    <p>
+      variables, calculations<br />
+      variables in css <br />
+    </p>
+  </aside>
+</section>
+<section>
+  CSS Variables
+  <pre><code class="language-css">:root {
+  --main-bg-color: coral;
+  --main-txt-color: blue; 
+  --main-padding: 15px; 
+}
+
+#div1 {
+  background-color: var(--main-bg-color);
+  color: var(--main-txt-color);
+  padding: var(--main-padding);
+}</code>
+</pre>
+</section>
+<section>
+  <img src="img/ie11-logo.png" style="max-width: 300px" /><br />
+  <small>Internet Explorer 11</small>
+</section>
+<section>
+  <div class="logos">
+    <div class="logo">
+      <img
+        src="img/sass-logo.png"
+        class="fragment grow"
+        data-fragment-index="1"
+      />
+      <small>SASS</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/less-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      />
+      <small>LESS</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/postcss-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      />
+      <small>PostCSS</small>
+    </div>
+  </div>
+  <aside class="notes">
+    SASS or the one the library is using
+  </aside>
+</section>
+<section>
+  <h3>Links</h3>
+  <ul class="unstyled">
+    <li>
+      <a href="https://sass-lang.com/" target="blank">SASS</a><br /><small
+        >The most popular</small
+      >
+    </li>
+    <li>
+      <a href="http://www.lesscss.de" target="blank">LESS CSS</a><br /><small
+        >Used in some UI frameworks</small
+      >
+    </li>
+    <li>
+      <a href="https://postcss.org/" target="blank">Post CSS</a><br /><small
+        >Not really a pre-processor but can be used like one</small
+      >
+    </li>
+  </ul>
+</section>

@@ -1,0 +1,147 @@
+<section>
+  <div class="boxes">
+    <svg class="squiggle" viewbox="0,0 300,40" width="120%">
+      <path d="M8,10 C150,-20 50,60 292,10"></path>
+    </svg>
+    <div class="box">
+      Debugging
+    </div>
+    <div class="box highlight">
+      Testing
+    </div>
+    <div class="box">
+      Continous Integration
+    </div>
+  </div>
+  <aside class="notes"></aside>
+</section>
+<section>
+  <img src="img/jest-logo.png" />
+  <aside class="notes">
+    <p>
+      Jest is included in create-react-app and is a great test runner and
+      assertion library for JavaScript applications. It can be used without
+      react and also brings tools like watching for file changes, testing only
+      changed (and depending) tests and integrates code coverage tools
+    </p>
+    <p>
+      Jest can be used without react
+    </p>
+  </aside>
+</section>
+<section>
+  Testing Utilities
+  <div class="logos" style="margin-top: 1.5rem;">
+    <div class="logo">
+      <img
+        src="img/airbnb-logo.png"
+        class="fragment shrink highlight-blue"
+        data-fragment-index="1"
+      /><br />
+      <small>Enzyme</small>
+    </div>
+    <div class="logo">
+      <img
+        src="img/rtl-logo.webp"
+        class="fragment grow"
+        data-fragment-index="1"
+      /><br />
+      <small>React Testing Library</small>
+    </div>
+  </div>
+  <aside class="notes">
+    <p>
+      Enzyme is the most popular renderer and helper
+    </p>
+    <p>
+      But I like the API of react testing library better. It is shorter and is
+      more user centric than developer centric.
+    </p>
+  </aside>
+</section>
+<section>
+  <img src="img/rauchg-screenshot.png" />
+  <aside class="notes"></aside>
+</section>
+<section>
+  <img src="img/cypress-logo.png" />
+  <aside class="notes">
+    <p>
+      Cypress is my favorite testing tool. You test the rendered web page.
+      Unlike jest which renders into JSDOM, cypress renders in a real browser
+    </p>
+    <p>
+      You get a nice API to interact with the page. With that you can mimic what
+      a user would be doing.
+    </p>
+  </aside>
+</section>
+<section>
+  <img src="img/cypress-screenshot.png" />
+  <aside class="notes">
+    <p>
+      It also has a nice Test Runner
+    </p>
+    <p>
+      You can either stub or mock your API calls or let the application call the
+      backend.
+    </p>
+    <p>
+      it can even run in headles mode in CI
+    </p>
+    <p>
+      Dashboard paid or free for open source
+    </p>
+  </aside>
+</section>
+<section>
+  Visual Regression Testing with percy
+  <img src="img/percy-screenshot.png" class="fragment" />
+  <aside class="notes">
+    <p>
+      When developing your own components it can be great to know that changes
+      you are making won't affect the look of the component.
+    </p>
+    <p>
+      With visual testing the tool takes a screenshot of your rendered app or
+      component at the time you are satisfied with how it looks and takes
+      another screenshot every time you run the test.
+    </p>
+    <p>
+      It then compares the screenshots and asks you, if it found changes,
+      whether the changes are wanted or a regression.
+    </p>
+  </aside>
+</section>
+
+<!-- <section>
+  <img src="img/testing-pyramid.png" />
+  <aside class="notes"></aside>
+</section>
+<section>
+  <img src="img/testing-trophy.jpg" />
+  <aside class="notes"></aside>
+</section> -->
+<section>
+  <h3>Links</h3>
+  <ul class="unstyled">
+    <li><a href="https://jestjs.io/" target="blank">jest</a></li>
+    <li><a href="https://airbnb.io/enzyme/" target="blank">Enzyme</a></li>
+    <li>
+      <a
+        href="https://testing-library.com/docs/react-testing-library/intro"
+        target="blank"
+        >React Testing Library</a
+      >
+    </li>
+    <li>
+      <a
+        href="https://twitter.com/rauchg/status/807626710350839808"
+        target="blank"
+        >Tweet of @rauchg</a
+      >
+    </li>
+    <li><a href="https://cypress.io/" target="blank">cypress.io</a></li>
+    <li><a href="https://percy.io/" target="blank">percy.io</a></li>
+  </ul>
+</section>
